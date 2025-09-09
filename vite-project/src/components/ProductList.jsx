@@ -8,7 +8,7 @@ export default function ProductList({ title = "Productos" }) {
       <div className="container">
         <h2 className="section__title">{title}</h2>
 
-        <div className="grid grid--4">
+        <div className="row row--scroll">
           {items.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}

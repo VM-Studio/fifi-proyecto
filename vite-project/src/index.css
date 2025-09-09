@@ -5,7 +5,7 @@
   --muted: #666666;
   --line: #eaeaea;
   --brand: #111111;
-  --page-bg: linear-gradient(180deg, #D2D5D9 0%, #B7B9BD 100%);
+  --page-bg: #ffffff;
 
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -73,14 +73,42 @@ img { display: block; width: 100%; height: auto; }
 .container { width: min(1200px, 92%); margin: 0 auto; }
 
 /* ===== Navbar ===== */
-.nav { position: sticky; top: 0; z-index: 50; background: linear-gradient(180deg, #D2D5D9 0%, #B7B9BD 100%); }
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #ffffff; /* fondo blanco */
+}
 .nav__row { display:flex; align-items:center; gap:16px; padding:10px 0; }
 .nav__logo a { font-weight: 800; letter-spacing: 2px; }
+.nav__links a {
+  color: #000000; /* texto negro */
+  font-weight: 500;
+  font-family: 'Bebas Neue', sans-serif;
+}
 .nav__links { display:flex; gap:16px; margin-left:16px; }
 .nav__links a { padding:8px 6px; }
 .nav__right { margin-left:auto; display:flex; gap:8px; align-items:center; }
-.nav__search { padding:8px 12px; border:1px solid var(--line); border-radius:999px; min-width:180px; }
-.icon-btn { background:transparent; border:1px solid var(--line); padding:8px 10px; border-radius:999px; cursor:pointer; }
+.nav__search {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  min-width: 180px;
+  background-color: #cf5531; 
+  color: #000 !important;   
+}
+
+/* placeholder “Buscar” en negro */
+.nav__search::placeholder {
+  color: #000;       /* negro */
+  opacity: 0.7;     
+}
+
+.icon-btn {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: #000000; /* iconos negros */
+}
 .nav__logo .brand {
   display: flex;
   align-items: center;
@@ -105,20 +133,46 @@ img { display: block; width: 100%; height: auto; }
 .hero__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #FF8A00 0%, #FF6A00 100%);
+  background: url("https://i.postimg.cc/fWVZ0srL/Screenshot-2025-09-08-at-10-37-27-PM.png") center/cover no-repeat,
+              linear-gradient(180deg, #FF8A00 0%, #FF6A00 100%);
 }
 
-.hero__content { position:relative; color:#fff; text-align:center; }
+
+
+.hero__content { position:relative; color:#fff; text-align:center; font-family: 'Bebas Neue', sans-serif; }
 .hero__content h1 { font-size:clamp(28px, 5vw, 56px); margin:0 0 8px; }
 .hero__content p { margin:0 0 16px; font-size:clamp(14px, 2vw, 18px); }
 .hero__cta { display:flex; gap:12px; justify-content:center; }
+/* Sombra ligera para el título del Hero */
+.hero__content h1 {
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.35),
+    0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+/* (Opcional) un toque más sutil para el subtítulo */
+.hero__content p {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
 .btn { border:1px solid #fff; padding:10px 16px; border-radius:999px; background:#fff; color:#111; font-weight:600; }
 .btn--dark { background:#111; color:#fff; border-color:#111; }
 .btn--sm { padding:8px 12px; font-size:14px; }
 
 /* ===== Secciones & Grid ===== */
-.section { padding:28px 0; }
-.section__title { font-size:22px; margin:0 0 16px; }
+.section {
+  padding: 28px 0;
+  margin-bottom: 58px; /* agrega espacio entre secciones */
+}
+
+.section__title {
+  font-size: 45px;    /* más grande */
+  font-weight: 700;   /* más grueso (opcional) */
+  margin: 0 0 24px;   /* un poco más de espacio debajo */
+  font-family: 'Bebas Neue', sans-serif;
+ 
+}
+
 .grid { display:grid; gap:16px; }
 .grid--4 { grid-template-columns:repeat(4, minmax(0,1fr)); }
 @media (max-width:1000px){ .grid--4 { grid-template-columns:repeat(3,1fr); } }
@@ -129,9 +183,43 @@ img { display: block; width: 100%; height: auto; }
 @media (max-width:600px){ .grid--3 { grid-template-columns:repeat(1,1fr); } }
 
 /* ===== Categorías ===== */
-.cat { position:relative; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+.cat { position:relative; border:4px solid var(--line); border-radius:12px; overflow:hidden; }
 .cat img { aspect-ratio:4/3; object-fit:cover; }
 .cat span { position:absolute; left:12px; bottom:12px; background:#fff; padding:6px 10px; border-radius:999px; font-weight:600; }
+/* Tarjeta con background image */
+.cat--bg {
+  aspect-ratio: 4 / 3;             /* mantiene proporción */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;           /* texto en la parte inferior */
+  justify-content: center;
+  padding: 16px;
+}
+
+/* Texto de la tarjeta */
+.cat__label {
+  color: #000;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  background: rgba(255,255,255,0.8);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+/* Hover efecto */
+.cat--bg:hover {
+  transform: translateY(-4px);
+  transition: transform .2s ease;
+}
 
 /* ===== Product Card ===== */
 .card { border:1px solid var(--line); border-radius:12px; padding:10px; display:flex; flex-direction:column; gap:8px; }
@@ -164,7 +252,7 @@ img { display: block; width: 100%; height: auto; }
 .footer{
   margin-top:24px;
   
-  background: linear-gradient(180deg, #223142 0%, #1B2430 100%);
+  background: linear-gradient(180deg, #cf5531, #cf5531 100%);
 
   color:#E6E9EE;                           
   border-top:1px solid rgba(255,255,255,.06);
@@ -188,7 +276,7 @@ img { display: block; width: 100%; height: auto; }
 .footer__grid a:hover{ color:#FFFFFF; }
 
 .footer__copy{
-  background:#19222C;                      
+  background:#cf5531;                      
   border-top:1px solid rgba(255,255,255,.06);
   padding:12px 0;
   text-align:center;
@@ -216,3 +304,125 @@ main .page {
   .filters { width:100%; position:static; max-height:none; flex-direction:row; flex-wrap:wrap; gap:12px; }
   .filter-block { width:clamp(160px, 45%, 260px); border-bottom:none; padding-bottom:0; }
 }
+
+.gradient-text {
+  display: inline-block;                 /* asegura que el background se aplique al ancho del texto */
+  background-image: linear-gradient(
+    90deg,
+    #111111 30%,
+    #aaaaaa 35%,
+   
+    #aaaaaa 75%,
+    #111111 80%
+  );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* Fondo específico para la sección de categorías */
+main .section.category-section {
+  background: #ffffff !important; /* blanco */
+}
+
+/* ===== Icons (Novedades en 3 zapatillas grandes) ===== */
+.icons__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+@media (max-width: 1000px) { .icons__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px)  { .icons__grid { grid-template-columns: 1fr; } }
+
+.icons__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.icons__item img {
+  width: 100%;
+  height: auto;
+  transform: translateY(0);
+  transition: transform .2s ease;
+}
+
+.icons__item:hover img { transform: translateY(-4px); }
+
+/* “pill” negra debajo de cada imagen */
+.icons__tag {
+  margin-top: 14px;
+  padding: 8px 16px;
+  background: #cf5531;
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+/* ===== Row scroller (para ProductList en modo horizontal) ===== */
+.row {
+  display: flex;
+  gap: 24px;
+}
+
+.row--scroll {
+  overflow-x: auto;
+  padding: 6px 4px 16px;             /* espacio inferior para la barra */
+  scroll-snap-type: x mandatory;     /* snap suave al arrastrar */
+  -webkit-overflow-scrolling: touch; /* inercia en iOS */
+}
+
+/* Cada tarjeta mantiene ancho fijo para deslizar */
+/* Tarjetas más pequeñas y cuadradas */
+.row--scroll > .card {
+  flex: 0 0 280px;         /* ancho fijo más chico */
+  height: 280px;           /* altura igual al ancho → cuadrada */
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border-radius: 0 !important;   /* esquinas rectas */
+  border: 1px solid #e5e5e5; 
+}
+
+/* Imagen dentro de la card también cuadrada */
+.row--scroll > .card .card__imgwrap {
+  aspect-ratio: 1 / 1;     /* cuadrada */
+  height: 100%;
+}
+
+
+/* Opcional: más angostas en pantallas chicas */
+@media (max-width: 640px) {
+  .row--scroll > .card { flex-basis: 260px; }
+}
+
+/* ===== Estilo de scrollbar (WebKit: Chrome/Edge/Safari) ===== */
+.row--scroll::-webkit-scrollbar {
+  height: 8px;                       /* grosor de la barra */
+}
+.row--scroll::-webkit-scrollbar-track {
+  background: #eeeeee;               /* carril claro */
+  border-radius: 999px;
+}
+.row--scroll::-webkit-scrollbar-thumb {
+  background: #cf5531;               /* NARANJA de la marca */
+  border-radius: 999px;
+}
+.row--scroll::-webkit-scrollbar-thumb:hover {
+  background: #cf5531;               /* tono un poco más oscuro al hover */
+}
+
+/* ===== Scrollbar en Firefox ===== */
+.row--scroll {
+  scrollbar-color: #cf5531 #eeeeee;  /* thumb, track */
+  scrollbar-width: thin;
+}
+

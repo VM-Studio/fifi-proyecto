@@ -5,8 +5,12 @@ export default function HeroBanner() {
     <section className="hero">
       <div className="hero__bg" />
       <div className="container hero__content">
-        <h1>Encontrá tu próxima Prenda Deportiva</h1>
-        <p>Rendimiento y Estilo para todos los días.</p>
+      <h1>
+  <span >Encontrá tu próxima Prenda Deportiva </span>
+</h1>
+
+
+        <p><b>Rendimiento y Estilo para todos los días.</b></p>
         <div className="hero__cta">
           <Link className="btn btn--dark" to="/buscar">Comprar Ahora</Link>
           <Link className="btn" to="/novedades">Ver Lanzamientos</Link>

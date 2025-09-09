@@ -61,10 +61,10 @@ export default function Navbar({ onLogout }) {
             aria-label="Cerrar sesión"
             style={{
               marginLeft: "0.5rem",
-              backgroundColor: "#ff6b35",
-              color: "white",
+              backgroundColor: "#cf5531",
+              color: "black",
               borderRadius: "8px",
-              fontWeight: "600",
+              fontWeight: "300",
               padding: "0.5rem 1rem",
               border: "none",
               cursor: "pointer",
